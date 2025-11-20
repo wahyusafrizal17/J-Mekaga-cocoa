@@ -1,10 +1,15 @@
 <?php
-$pageTitle = "Pengaturan";
-require_once __DIR__ . '/includes/header.php';
+// Include required files first (before any output)
+require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/functions.php';
+requireLogin();
 requirePermission('super_admin');
 
+// Get database connection
+require_once __DIR__ . '/../config/database.php';
 $db = getDB();
 
+// Handle actions (must be before header.php to allow redirects)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach ($_POST as $key => $value) {
         if ($key != 'submit') {
@@ -16,6 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Location: settings.php');
     exit;
 }
+
+// Now include header.php (after all redirects are handled)
+$pageTitle = "Pengaturan";
+require_once __DIR__ . '/includes/header.php';
 
 $stmt = $db->query("SELECT * FROM settings ORDER BY `key`");
 $settings = $stmt->fetchAll();

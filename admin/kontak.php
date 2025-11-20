@@ -1,11 +1,16 @@
 <?php
-$pageTitle = "Pesan Kontak";
-require_once __DIR__ . '/includes/header.php';
+// Include required files first (before any output)
+require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/functions.php';
+requireLogin();
 
+// Get database connection
+require_once __DIR__ . '/../config/database.php';
 $db = getDB();
 $action = $_GET['action'] ?? 'list';
 $id = $_GET['id'] ?? null;
 
+// Handle actions (must be before header.php to allow redirects)
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $action == 'update_status') {
     $status = $_POST['status'];
     $stmt = $db->prepare("UPDATE kontak SET status = ? WHERE id = ?");
@@ -14,6 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $action == 'update_status') {
     header('Location: kontak.php');
     exit;
 }
+
+// Now include header.php (after all redirects are handled)
+$pageTitle = "Pesan Kontak";
+require_once __DIR__ . '/includes/header.php';
 
 if ($action == 'list') {
     $statusFilter = $_GET['status'] ?? '';

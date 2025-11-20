@@ -1,10 +1,15 @@
 <?php
-$pageTitle = "Pemesanan";
-require_once __DIR__ . '/includes/header.php';
+// Include required files first (before any output)
+require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/functions.php';
+requireLogin();
 
+// Get database connection
+require_once __DIR__ . '/../config/database.php';
 $db = getDB();
 $tab = $_GET['tab'] ?? 'cocoa';
 
+// Handle actions (must be before header.php to allow redirects)
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_status'])) {
     $id = $_POST['id'];
     $status = $_POST['status'];
@@ -20,6 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_status'])) {
     header('Location: pemesanan.php?tab=' . $tab);
     exit;
 }
+
+// Now include header.php (after all redirects are handled)
+$pageTitle = "Pemesanan";
+require_once __DIR__ . '/includes/header.php';
 
 if ($tab == 'cocoa') {
     $stmt = $db->query("SELECT * FROM pemesanan_cocoa ORDER BY created_at DESC");

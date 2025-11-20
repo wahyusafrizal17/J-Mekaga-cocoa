@@ -1,11 +1,16 @@
 <?php
-$pageTitle = "Jurnal & Inovasi";
-require_once __DIR__ . '/includes/header.php';
+// Include required files first (before any output)
+require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/functions.php';
+requireLogin();
 
+// Get database connection
+require_once __DIR__ . '/../config/database.php';
 $db = getDB();
 $action = $_GET['action'] ?? 'list';
 $id = $_GET['id'] ?? null;
 
+// Handle actions (must be before header.php to allow redirects)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($action == 'create' || $action == 'edit') {
         $judul = sanitize($_POST['judul']);
@@ -80,6 +85,10 @@ if ($action == 'edit' && $id) {
         exit;
     }
 }
+
+// Now include header.php (after all redirects are handled)
+$pageTitle = "Jurnal & Inovasi";
+require_once __DIR__ . '/includes/header.php';
 
 if ($action == 'list') {
     $stmt = $db->query("SELECT j.*, ad.full_name as author FROM jurnal j LEFT JOIN admins ad ON j.created_by = ad.id ORDER BY j.created_at DESC");
