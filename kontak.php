@@ -8,12 +8,7 @@ include 'includes/header.php';
     <!-- Page Header -->
     <section class="page-header section">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1 class="page-title">Kontak Kami</h1>
-            <p class="page-description">Kami siap membantu Anda</p>
-          </div>
-        </div>
+        
       </div>
     </section>
 
@@ -91,11 +86,12 @@ include 'includes/header.php';
               <h3>Formulir Pesan / Pertanyaan</h3>
               <p>Isi formulir di bawah ini untuk mengirimkan pesan atau pertanyaan kepada kami.</p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <form action="process-form.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                <input type="hidden" name="action" value="kontak">
                 <div class="row gy-4">
 
                   <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" required>
+                    <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" required>
                   </div>
 
                   <div class="col-md-6">
@@ -103,23 +99,23 @@ include 'includes/header.php';
                   </div>
 
                   <div class="col-md-6">
-                    <input type="tel" class="form-control" name="phone" placeholder="Nomor Telepon" required>
+                    <input type="tel" class="form-control" name="telepon" placeholder="Nomor Telepon" required>
                   </div>
 
                   <div class="col-md-6">
-                    <select class="form-control" name="subject" required>
+                    <select class="form-control" name="subjek" required>
                       <option value="">Pilih Subjek</option>
-                      <option value="informasi">Informasi Umum</option>
-                      <option value="mekaga-gadai">Mekaga Gadai</option>
-                      <option value="mekaga-cocoa">Mekaga Cocoa</option>
-                      <option value="mekaga-farm">Mekaga Farm</option>
-                      <option value="kerjasama">Kerjasama Bisnis</option>
-                      <option value="lainnya">Lainnya</option>
+                      <option value="Informasi Umum">Informasi Umum</option>
+                      <option value="Mekaga Gadai">Mekaga Gadai</option>
+                      <option value="Mekaga Cocoa">Mekaga Cocoa</option>
+                      <option value="Mekaga Farm">Mekaga Farm</option>
+                      <option value="Kerjasama Bisnis">Kerjasama Bisnis</option>
+                      <option value="Lainnya">Lainnya</option>
                     </select>
                   </div>
 
                   <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Pesan / Pertanyaan" required></textarea>
+                    <textarea class="form-control" name="pesan" rows="6" placeholder="Pesan / Pertanyaan" required></textarea>
                   </div>
 
                   <div class="col-12 text-center">

@@ -6,10 +6,9 @@
 
 require_once __DIR__ . '/config/database.php';
 
-header('Content-Type: application/json');
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo json_encode(['success' => false, 'message' => 'Invalid request method']);
+    http_response_code(405);
+    echo 'Error: Invalid request method';
     exit;
 }
 
@@ -55,7 +54,8 @@ try {
             $stmt = $db->prepare("INSERT INTO pelamar (nama, email, telepon, alamat, pendidikan, pengalaman, posisi, motivasi, cv_file, foto_file) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->execute([$nama, $email, $telepon, $alamat, $pendidikan, $pengalaman, $posisi, $motivasi, $cv_file, $foto_file]);
             
-            echo json_encode(['success' => true, 'message' => 'Lamaran Anda berhasil dikirim!']);
+            // Return OK for validate.js compatibility
+            echo 'OK';
             break;
             
         case 'pengajuan_gadai':
@@ -79,7 +79,7 @@ try {
             $stmt = $db->prepare("INSERT INTO pengajuan_gadai (nama, telepon, email, jenis_barang, deskripsi, foto_barang) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->execute([$nama, $telepon, $email, $jenis_barang, $deskripsi, $foto_barang]);
             
-            echo json_encode(['success' => true, 'message' => 'Pengajuan gadai Anda berhasil dikirim!']);
+            echo 'OK';
             break;
             
         case 'pemesanan_cocoa':
@@ -94,7 +94,7 @@ try {
             $stmt = $db->prepare("INSERT INTO pemesanan_cocoa (nama, telepon, email, produk, jumlah, alamat) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->execute([$nama, $telepon, $email, $produk, $jumlah, $alamat]);
             
-            echo json_encode(['success' => true, 'message' => 'Pemesanan Anda berhasil dikirim!']);
+            echo 'OK';
             break;
             
         case 'pemesanan_farm':
@@ -108,7 +108,7 @@ try {
             $stmt = $db->prepare("INSERT INTO pemesanan_farm (nama, telepon, email, tipe, pesan) VALUES (?, ?, ?, ?, ?)");
             $stmt->execute([$nama, $telepon, $email, $tipe, $pesan]);
             
-            echo json_encode(['success' => true, 'message' => 'Pesan Anda berhasil dikirim!']);
+            echo 'OK';
             break;
             
         case 'kontak':
@@ -122,7 +122,7 @@ try {
             $stmt = $db->prepare("INSERT INTO kontak (nama, email, telepon, subjek, pesan) VALUES (?, ?, ?, ?, ?)");
             $stmt->execute([$nama, $email, $telepon, $subjek, $pesan]);
             
-            echo json_encode(['success' => true, 'message' => 'Pesan Anda berhasil dikirim!']);
+            echo 'OK';
             break;
             
         case 'testimoni':
@@ -147,14 +147,16 @@ try {
             $stmt = $db->prepare("INSERT INTO testimoni (nama, jabatan, perusahaan, testimoni, rating, foto, kategori, status) VALUES (?, ?, ?, ?, ?, ?, ?, 'pending')");
             $stmt->execute([$nama, $jabatan, $perusahaan, $testimoni, $rating, $foto, $kategori]);
             
-            echo json_encode(['success' => true, 'message' => 'Testimoni Anda berhasil dikirim! Menunggu persetujuan admin.']);
+            echo 'OK';
             break;
             
         default:
-            echo json_encode(['success' => false, 'message' => 'Invalid action']);
+            http_response_code(400);
+            echo 'Error: Invalid action';
     }
     
 } catch (Exception $e) {
-    echo json_encode(['success' => false, 'message' => 'Terjadi kesalahan: ' . $e->getMessage()]);
+    http_response_code(500);
+    echo 'Error: ' . htmlspecialchars($e->getMessage());
 }
 

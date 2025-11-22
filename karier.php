@@ -83,7 +83,8 @@ $lowongans = getLowongan();
 
         <div class="row justify-content-center">
           <div class="col-lg-8">
-            <form action="#" method="post" class="php-email-form" enctype="multipart/form-data" data-aos="fade-up" data-aos-delay="200">
+            <form action="process-form.php" method="post" class="php-email-form" enctype="multipart/form-data" data-aos="fade-up" data-aos-delay="200">
+              <input type="hidden" name="action" value="pelamar">
               <div class="row gy-4">
                 <div class="col-md-6">
                   <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" required>
@@ -111,11 +112,11 @@ $lowongans = getLowongan();
                 </div>
                 <div class="col-md-6">
                   <label class="form-label">Upload CV/Resume (PDF, Max 2MB)</label>
-                  <input type="file" class="form-control" name="cv" accept=".pdf,.doc,.docx" required>
+                  <input type="file" class="form-control" name="cv_file" accept=".pdf,.doc,.docx" required>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label">Upload Foto (JPG, Max 1MB)</label>
-                  <input type="file" class="form-control" name="foto" accept="image/jpeg,image/jpg,image/png">
+                  <input type="file" class="form-control" name="foto_file" accept="image/jpeg,image/jpg,image/png">
                 </div>
                 <div class="col-12 text-center">
                   <div class="loading">Loading</div>

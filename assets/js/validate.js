@@ -64,11 +64,27 @@
     })
     .then(data => {
       thisForm.querySelector('.loading').classList.remove('d-block');
-      if (data.trim() == 'OK') {
-        thisForm.querySelector('.sent-message').classList.add('d-block');
-        thisForm.reset(); 
-      } else {
-        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
+      
+      // Try to parse as JSON first
+      let jsonData;
+      try {
+        jsonData = JSON.parse(data);
+        if (jsonData.success) {
+          thisForm.querySelector('.sent-message').classList.add('d-block');
+          thisForm.querySelector('.sent-message').innerHTML = jsonData.message || 'Pesan Anda telah terkirim. Terima kasih!';
+          thisForm.reset();
+          return;
+        } else {
+          throw new Error(jsonData.message || 'Form submission failed');
+        }
+      } catch (e) {
+        // Not JSON, check if it's "OK"
+        if (data.trim() == 'OK') {
+          thisForm.querySelector('.sent-message').classList.add('d-block');
+          thisForm.reset();
+        } else {
+          throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action);
+        }
       }
     })
     .catch((error) => {
