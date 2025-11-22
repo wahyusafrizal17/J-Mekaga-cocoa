@@ -261,54 +261,6 @@ $testimonials = getTestimonials(null, 'mekaga_cocoa');
       </div>
     </section>
 
-    <!-- Pemesanan Online -->
-    <section id="mekaga-cocoa-order" class="section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-title text-center">
-          <h2>Pemesanan Online</h2>
-          <p>Pesan produk kakao berkualitas langsung dari sini</p>
-        </div>
-
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <form action="#" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" required>
-                </div>
-                <div class="col-md-6">
-                  <input type="tel" class="form-control" name="telepon" placeholder="Nomor Telepon" required>
-                </div>
-                <div class="col-md-6">
-                  <input type="email" class="form-control" name="email" placeholder="Email" required>
-                </div>
-                <div class="col-md-6">
-                  <select class="form-control" name="produk" required>
-                    <option value="">Pilih Produk</option>
-                    <option value="biji-kakao">Biji Kakao Premium</option>
-                    <option value="bubuk-kakao">Bubuk Kakao</option>
-                    <option value="cocoa-butter">Cocoa Butter</option>
-                  </select>
-                </div>
-                <div class="col-12">
-                  <input type="number" class="form-control" name="jumlah" placeholder="Jumlah (kg)" required>
-                </div>
-                <div class="col-12">
-                  <textarea class="form-control" name="alamat" rows="4" placeholder="Alamat Pengiriman" required></textarea>
-                </div>
-                <div class="col-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Pesanan Anda telah terkirim. Terima kasih!</div>
-                  <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Testimoni Pelanggan -->
     <section id="mekaga-cocoa-testimoni" class="section light-background">
       <div class="container" data-aos="fade-up" data-aos-delay="100">

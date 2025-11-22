@@ -22,7 +22,7 @@
 
   <!-- Vendor CSS Files -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/css/aos.css" rel="stylesheet">
   <link href="assets/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/css/swiper-bundle.min.css" rel="stylesheet">
@@ -74,7 +74,6 @@
                 <ul>
                   <li><a href="lini-bisnis.php#mekaga-cocoa-produk">Tentang Produk Kakao</a></li>
                   <li><a href="lini-bisnis.php#mekaga-cocoa-galeri">Galeri Produksi</a></li>
-                  <li><a href="lini-bisnis.php#mekaga-cocoa-order">Pemesanan Online</a></li>
                   <li><a href="lini-bisnis.php#mekaga-cocoa-testimoni">Testimoni Pelanggan</a></li>
                 </ul>
               </li>
