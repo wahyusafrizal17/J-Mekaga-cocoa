@@ -66,7 +66,8 @@ $testimonials = getTestimonials(null, 'mekaga_cocoa');
 
         <div class="row justify-content-center">
           <div class="col-lg-8">
-            <form action="#" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form action="process-form.php" method="post" class="php-email-form" enctype="multipart/form-data" data-aos="fade-up" data-aos-delay="200">
+              <input type="hidden" name="action" value="pengajuan_gadai">
               <div class="row gy-4">
                 <div class="col-md-6">
                   <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" required>
@@ -90,7 +91,8 @@ $testimonials = getTestimonials(null, 'mekaga_cocoa');
                   <textarea class="form-control" name="deskripsi" rows="4" placeholder="Deskripsi Barang" required></textarea>
                 </div>
                 <div class="col-12">
-                  <input type="file" class="form-control" name="foto_barang" accept="image/*" placeholder="Upload Foto Barang">
+                  <label class="form-label">Upload Foto Barang</label>
+                  <input type="file" class="form-control" name="foto_barang" accept="image/*">
                 </div>
                 <div class="col-12 text-center">
                   <div class="loading">Loading</div>
