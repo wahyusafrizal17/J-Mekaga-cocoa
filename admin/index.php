@@ -100,6 +100,7 @@ $recentPemesananFarm = $stmt->fetchAll();
 
 <!-- Statistics Cards -->
 <div class="row g-4 mb-4">
+    <!-- 1. Berita -->
     <div class="col-md-3 col-sm-6">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-body">
@@ -120,6 +121,70 @@ $recentPemesananFarm = $stmt->fetchAll();
         </div>
     </div>
     
+    <!-- 2. Mekaga Gadai (Pengajuan Gadai) -->
+    <div class="col-md-3 col-sm-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-muted mb-2">Mekaga Gadai</h6>
+                        <h3 class="mb-0"><?php echo $stats['pengajuan']['total'] ?? 0; ?></h3>
+                        <small class="text-warning"><?php echo $stats['pengajuan']['pending'] ?? 0; ?> Pending</small>
+                    </div>
+                    <div class="text-primary" style="font-size: 2.5rem;">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                </div>
+            </div>
+            <a href="pengajuan.php" class="card-footer bg-white text-center text-decoration-none text-primary border-top">
+                <small>Lihat Detail <i class="bi bi-arrow-right"></i></small>
+            </a>
+        </div>
+    </div>
+    
+    <!-- 3. Mekaga Cocoa (Pemesanan Cocoa) -->
+    <div class="col-md-3 col-sm-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-muted mb-2">Mekaga Cocoa</h6>
+                        <h3 class="mb-0"><?php echo $stats['pemesanan_cocoa']['total'] ?? 0; ?></h3>
+                        <small class="text-warning"><?php echo $stats['pemesanan_cocoa']['pending'] ?? 0; ?> Pending</small>
+                    </div>
+                    <div class="text-primary" style="font-size: 2.5rem;">
+                        <i class="bi bi-basket"></i>
+                    </div>
+                </div>
+            </div>
+            <a href="pemesanan.php?tab=cocoa" class="card-footer bg-white text-center text-decoration-none text-primary border-top">
+                <small>Lihat Detail <i class="bi bi-arrow-right"></i></small>
+            </a>
+        </div>
+    </div>
+    
+    <!-- 4. Mekaga Farm (Pemesanan Farm) -->
+    <div class="col-md-3 col-sm-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-muted mb-2">Mekaga Farm</h6>
+                        <h3 class="mb-0"><?php echo $stats['pemesanan_farm']['total'] ?? 0; ?></h3>
+                        <small class="text-warning"><?php echo $stats['pemesanan_farm']['pending'] ?? 0; ?> Pending</small>
+                    </div>
+                    <div class="text-primary" style="font-size: 2.5rem;">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                </div>
+            </div>
+            <a href="pemesanan.php?tab=farm" class="card-footer bg-white text-center text-decoration-none text-primary border-top">
+                <small>Lihat Detail <i class="bi bi-arrow-right"></i></small>
+            </a>
+        </div>
+    </div>
+    
+    <!-- 5. CSR & Kegiatan Sosial -->
     <div class="col-md-3 col-sm-6">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-body">
@@ -140,12 +205,13 @@ $recentPemesananFarm = $stmt->fetchAll();
         </div>
     </div>
     
+    <!-- 6. Karier (Lowongan) -->
     <div class="col-md-3 col-sm-6">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <h6 class="text-muted mb-2">Lowongan</h6>
+                        <h6 class="text-muted mb-2">Karier</h6>
                         <h3 class="mb-0"><?php echo $stats['lowongan']['total'] ?? 0; ?></h3>
                         <small class="text-success"><?php echo $stats['lowongan']['open'] ?? 0; ?> Open</small>
                     </div>
@@ -160,6 +226,7 @@ $recentPemesananFarm = $stmt->fetchAll();
         </div>
     </div>
     
+    <!-- 7. Pelamar -->
     <div class="col-md-3 col-sm-6">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-body">
@@ -180,6 +247,7 @@ $recentPemesananFarm = $stmt->fetchAll();
         </div>
     </div>
     
+    <!-- 8. Testimoni -->
     <div class="col-md-3 col-sm-6">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-body">
@@ -200,46 +268,7 @@ $recentPemesananFarm = $stmt->fetchAll();
         </div>
     </div>
     
-    <div class="col-md-3 col-sm-6">
-        <div class="card border-0 shadow-sm h-100">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <h6 class="text-muted mb-2">Pengajuan Gadai</h6>
-                        <h3 class="mb-0"><?php echo $stats['pengajuan']['total'] ?? 0; ?></h3>
-                        <small class="text-warning"><?php echo $stats['pengajuan']['pending'] ?? 0; ?> Pending</small>
-                    </div>
-                    <div class="text-primary" style="font-size: 2.5rem;">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                </div>
-            </div>
-            <a href="pengajuan.php" class="card-footer bg-white text-center text-decoration-none text-primary border-top">
-                <small>Lihat Detail <i class="bi bi-arrow-right"></i></small>
-            </a>
-        </div>
-    </div>
-    
-    <div class="col-md-3 col-sm-6">
-        <div class="card border-0 shadow-sm h-100">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <h6 class="text-muted mb-2">Pemesanan Cocoa</h6>
-                        <h3 class="mb-0"><?php echo $stats['pemesanan_cocoa']['total'] ?? 0; ?></h3>
-                        <small class="text-warning"><?php echo $stats['pemesanan_cocoa']['pending'] ?? 0; ?> Pending</small>
-                    </div>
-                    <div class="text-primary" style="font-size: 2.5rem;">
-                        <i class="bi bi-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <a href="pemesanan.php?tab=cocoa" class="card-footer bg-white text-center text-decoration-none text-primary border-top">
-                <small>Lihat Detail <i class="bi bi-arrow-right"></i></small>
-            </a>
-        </div>
-    </div>
-    
+    <!-- 9. Pesan Kontak -->
     <div class="col-md-3 col-sm-6">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-body">
@@ -263,7 +292,7 @@ $recentPemesananFarm = $stmt->fetchAll();
 
 <!-- Recent Items Section -->
 <div class="row g-4">
-    <!-- Recent Berita -->
+    <!-- 1. Recent Berita -->
     <div class="col-lg-6 col-md-12">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-header bg-white d-flex justify-content-between align-items-center">
@@ -292,7 +321,94 @@ $recentPemesananFarm = $stmt->fetchAll();
         </div>
     </div>
     
-    <!-- Recent CSR -->
+    <!-- 2. Recent Mekaga Gadai (Pengajuan Gadai) -->
+    <div class="col-lg-6 col-md-12">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-file-earmark-text me-2"></i>Mekaga Gadai Terbaru</h5>
+                <a href="pengajuan.php" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
+            </div>
+            <div class="card-body">
+                <?php if (empty($recentPengajuan)): ?>
+                    <p class="text-muted mb-0">Belum ada pengajuan</p>
+                <?php else: ?>
+                    <div class="list-group list-group-flush">
+                        <?php foreach ($recentPengajuan as $pengajuan): ?>
+                            <div class="list-group-item px-0 border-bottom">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1"><?php echo htmlspecialchars($pengajuan['nama']); ?></h6>
+                                        <small class="text-muted"><?php echo htmlspecialchars($pengajuan['jenis_barang'] ?? '-'); ?> - <?php echo formatDate($pengajuan['created_at']); ?></small>
+                                    </div>
+                                    <?php echo getStatusBadge($pengajuan['status']); ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 3. Recent Mekaga Cocoa (Pemesanan Cocoa) -->
+    <div class="col-lg-6 col-md-12">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-basket me-2"></i>Mekaga Cocoa Terbaru</h5>
+                <a href="pemesanan.php?tab=cocoa" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
+            </div>
+            <div class="card-body">
+                <?php if (empty($recentPemesananCocoa)): ?>
+                    <p class="text-muted mb-0">Belum ada pemesanan</p>
+                <?php else: ?>
+                    <div class="list-group list-group-flush">
+                        <?php foreach ($recentPemesananCocoa as $pemesanan): ?>
+                            <div class="list-group-item px-0 border-bottom">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1"><?php echo htmlspecialchars($pemesanan['nama']); ?></h6>
+                                        <small class="text-muted"><?php echo htmlspecialchars($pemesanan['produk'] ?? '-'); ?> - <?php echo formatDate($pemesanan['created_at']); ?></small>
+                                    </div>
+                                    <?php echo getStatusBadge($pemesanan['status']); ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 4. Recent Mekaga Farm (Pemesanan Farm) -->
+    <div class="col-lg-6 col-md-12">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-truck me-2"></i>Mekaga Farm Terbaru</h5>
+                <a href="pemesanan.php?tab=farm" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
+            </div>
+            <div class="card-body">
+                <?php if (empty($recentPemesananFarm)): ?>
+                    <p class="text-muted mb-0">Belum ada pemesanan</p>
+                <?php else: ?>
+                    <div class="list-group list-group-flush">
+                        <?php foreach ($recentPemesananFarm as $pemesanan): ?>
+                            <div class="list-group-item px-0 border-bottom">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1"><?php echo htmlspecialchars($pemesanan['nama']); ?></h6>
+                                        <small class="text-muted"><?php echo htmlspecialchars($pemesanan['tipe'] ?? '-'); ?> - <?php echo formatDate($pemesanan['created_at']); ?></small>
+                                    </div>
+                                    <?php echo getStatusBadge($pemesanan['status']); ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 5. Recent CSR & Kegiatan Sosial -->
     <div class="col-lg-6 col-md-12">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-header bg-white d-flex justify-content-between align-items-center">
@@ -321,7 +437,41 @@ $recentPemesananFarm = $stmt->fetchAll();
         </div>
     </div>
     
-    <!-- Recent Pelamar -->
+    <!-- 6. Recent Karier (Lowongan) -->
+    <div class="col-lg-6 col-md-12">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-briefcase me-2"></i>Karier Terbaru</h5>
+                <a href="lowongan.php" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
+            </div>
+            <div class="card-body">
+                <?php 
+                // Get recent lowongan
+                $stmt = $db->query("SELECT * FROM lowongan ORDER BY created_at DESC LIMIT 5");
+                $recentLowongan = $stmt->fetchAll();
+                ?>
+                <?php if (empty($recentLowongan)): ?>
+                    <p class="text-muted mb-0">Belum ada lowongan</p>
+                <?php else: ?>
+                    <div class="list-group list-group-flush">
+                        <?php foreach ($recentLowongan as $lowongan): ?>
+                            <div class="list-group-item px-0 border-bottom">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1"><?php echo htmlspecialchars($lowongan['posisi']); ?></h6>
+                                        <small class="text-muted"><?php echo htmlspecialchars($lowongan['divisi'] ?? '-'); ?> - <?php echo formatDate($lowongan['created_at']); ?></small>
+                                    </div>
+                                    <?php echo getStatusBadge($lowongan['status']); ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 7. Recent Pelamar -->
     <div class="col-lg-6 col-md-12">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-header bg-white d-flex justify-content-between align-items-center">
@@ -350,7 +500,7 @@ $recentPemesananFarm = $stmt->fetchAll();
         </div>
     </div>
     
-    <!-- Recent Testimoni -->
+    <!-- 8. Recent Testimoni -->
     <div class="col-lg-6 col-md-12">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-header bg-white d-flex justify-content-between align-items-center">
@@ -379,36 +529,7 @@ $recentPemesananFarm = $stmt->fetchAll();
         </div>
     </div>
     
-    <!-- Recent Pengajuan Gadai -->
-    <div class="col-lg-6 col-md-12">
-        <div class="card border-0 shadow-sm h-100">
-            <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                <h5 class="mb-0"><i class="bi bi-file-earmark-text me-2"></i>Pengajuan Gadai Terbaru</h5>
-                <a href="pengajuan.php" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
-            </div>
-            <div class="card-body">
-                <?php if (empty($recentPengajuan)): ?>
-                    <p class="text-muted mb-0">Belum ada pengajuan</p>
-                <?php else: ?>
-                    <div class="list-group list-group-flush">
-                        <?php foreach ($recentPengajuan as $pengajuan): ?>
-                            <div class="list-group-item px-0 border-bottom">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div class="flex-grow-1">
-                                        <h6 class="mb-1"><?php echo htmlspecialchars($pengajuan['nama']); ?></h6>
-                                        <small class="text-muted"><?php echo htmlspecialchars($pengajuan['jenis_barang']); ?> - <?php echo formatDate($pengajuan['created_at']); ?></small>
-                                    </div>
-                                    <?php echo getStatusBadge($pengajuan['status']); ?>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Recent Pesan Kontak -->
+    <!-- 9. Recent Pesan Kontak -->
     <div class="col-lg-6 col-md-12">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-header bg-white d-flex justify-content-between align-items-center">
@@ -425,67 +546,9 @@ $recentPemesananFarm = $stmt->fetchAll();
                                 <div class="d-flex justify-content-between align-items-start">
                                     <div class="flex-grow-1">
                                         <h6 class="mb-1"><?php echo htmlspecialchars($kontak['nama']); ?></h6>
-                                        <small class="text-muted"><?php echo htmlspecialchars($kontak['subjek']); ?> - <?php echo formatDate($kontak['created_at']); ?></small>
+                                        <small class="text-muted"><?php echo htmlspecialchars($kontak['subjek'] ?? '-'); ?> - <?php echo formatDate($kontak['created_at']); ?></small>
                                     </div>
                                     <?php echo getStatusBadge($kontak['status']); ?>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Recent Pemesanan Cocoa -->
-    <div class="col-lg-6 col-md-12">
-        <div class="card border-0 shadow-sm h-100">
-            <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                <h5 class="mb-0"><i class="bi bi-cart me-2"></i>Pemesanan Cocoa Terbaru</h5>
-                <a href="pemesanan.php?tab=cocoa" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
-            </div>
-            <div class="card-body">
-                <?php if (empty($recentPemesananCocoa)): ?>
-                    <p class="text-muted mb-0">Belum ada pemesanan</p>
-                <?php else: ?>
-                    <div class="list-group list-group-flush">
-                        <?php foreach ($recentPemesananCocoa as $pemesanan): ?>
-                            <div class="list-group-item px-0 border-bottom">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div class="flex-grow-1">
-                                        <h6 class="mb-1"><?php echo htmlspecialchars($pemesanan['nama']); ?></h6>
-                                        <small class="text-muted"><?php echo htmlspecialchars($pemesanan['produk']); ?> - <?php echo formatDate($pemesanan['created_at']); ?></small>
-                                    </div>
-                                    <?php echo getStatusBadge($pemesanan['status']); ?>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Recent Pemesanan Farm -->
-    <div class="col-lg-6 col-md-12">
-        <div class="card border-0 shadow-sm h-100">
-            <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                <h5 class="mb-0"><i class="bi bi-cart me-2"></i>Pemesanan Farm Terbaru</h5>
-                <a href="pemesanan.php?tab=farm" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
-            </div>
-            <div class="card-body">
-                <?php if (empty($recentPemesananFarm)): ?>
-                    <p class="text-muted mb-0">Belum ada pemesanan</p>
-                <?php else: ?>
-                    <div class="list-group list-group-flush">
-                        <?php foreach ($recentPemesananFarm as $pemesanan): ?>
-                            <div class="list-group-item px-0 border-bottom">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div class="flex-grow-1">
-                                        <h6 class="mb-1"><?php echo htmlspecialchars($pemesanan['nama']); ?></h6>
-                                        <small class="text-muted"><?php echo htmlspecialchars($pemesanan['tipe']); ?> - <?php echo formatDate($pemesanan['created_at']); ?></small>
-                                    </div>
-                                    <?php echo getStatusBadge($pemesanan['status']); ?>
                                 </div>
                             </div>
                         <?php endforeach; ?>
