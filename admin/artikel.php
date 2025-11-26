@@ -74,7 +74,7 @@ if ($action == 'delete' && $id) {
 }
 
 // Now include header.php (after all redirects are handled)
-$pageTitle = "Artikel/Berita";
+$pageTitle = "Berita";
 require_once __DIR__ . '/includes/header.php';
 
 // Get data for edit
@@ -106,7 +106,7 @@ if ($action == 'list') {
     ?>
     
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2><i class="bi bi-newspaper me-2"></i>Artikel/Berita</h2>
+        <h2><i class="bi bi-newspaper me-2"></i>Berita</h2>
         <a href="?action=create" class="btn btn-primary"><i class="bi bi-plus-circle me-2"></i>Tambah Artikel</a>
     </div>
     

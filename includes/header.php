@@ -79,8 +79,7 @@
           </li>
           <li class="dropdown"><a href="#"><span>Berita & Publikasi</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="berita.php#artikel">Artikel Perusahaan</a></li>
-              <li><a href="berita.php#jurnal">Jurnal & Inovasi</a></li>
+              <li><a href="berita.php#artikel">Berita</a></li>
               <li><a href="berita.php#csr">CSR & Kegiatan Sosial</a></li>
             </ul>
           </li>

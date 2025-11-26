@@ -84,12 +84,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             </li>
             <li class="nav-item">
                 <a class="nav-link <?php echo strpos($currentPage, 'artikel') !== false ? 'active' : ''; ?>" href="artikel.php">
-                    <i class="bi bi-newspaper me-2"></i> Artikel/Berita
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?php echo strpos($currentPage, 'jurnal') !== false ? 'active' : ''; ?>" href="jurnal.php">
-                    <i class="bi bi-journal-text me-2"></i> Jurnal & Inovasi
+                    <i class="bi bi-newspaper me-2"></i> Berita
                 </a>
             </li>
             <li class="nav-item">
@@ -99,7 +94,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             </li>
             <li class="nav-item">
                 <a class="nav-link <?php echo strpos($currentPage, 'lowongan') !== false ? 'active' : ''; ?>" href="lowongan.php">
-                    <i class="bi bi-briefcase me-2"></i> Lowongan Pekerjaan
+                    <i class="bi bi-briefcase me-2"></i> Karier
                 </a>
             </li>
             <li class="nav-item">

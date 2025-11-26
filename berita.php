@@ -7,7 +7,6 @@ require_once __DIR__ . '/includes/functions.php';
 
 // Get data from database
 $artikels = getArticles();
-$jurnals = getJournals();
 $csrs = getCSR();
 ?>
 
@@ -23,11 +22,11 @@ $csrs = getCSR();
       </div>
     </section>
 
-    <!-- Artikel Perusahaan Section -->
+    <!-- Berita Section -->
     <section id="artikel" class="section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="section-title">
-          <h2>Artikel Perusahaan</h2>
+          <h2>Berita</h2>
           <p>Berita dan artikel terkini seputar perusahaan</p>
         </div>
 
@@ -52,46 +51,6 @@ $csrs = getCSR();
                     <p><?php echo htmlspecialchars(truncate($artikel['excerpt'] ?: $artikel['konten'], 150)); ?></p>
                     <a href="artikel-detail.php?slug=<?php echo htmlspecialchars($artikel['slug']); ?>" class="read-more">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
                   </div>
-                </div>
-              </div>
-            <?php 
-              $delay += 100;
-            endforeach; 
-            ?>
-          <?php endif; ?>
-        </div>
-      </div>
-    </section>
-
-    <!-- Jurnal & Inovasi Section -->
-    <section id="jurnal" class="section light-background">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-title">
-          <h2>Jurnal & Inovasi</h2>
-          <p>Publikasi penelitian dan inovasi dari tim kami</p>
-        </div>
-
-        <div class="row gy-4 mt-4">
-          <?php if (empty($jurnals)): ?>
-            <div class="col-12">
-              <div class="alert alert-info">Belum ada jurnal yang dipublikasikan.</div>
-            </div>
-          <?php else: ?>
-            <?php 
-            $delay = 100;
-            foreach ($jurnals as $jurnal): 
-            ?>
-              <div class="col-lg-6" data-aos="fade-up" data-aos-delay="<?php echo $delay; ?>">
-                <div class="info-box h-100">
-                  <div class="icon-box mb-3">
-                    <i class="bi bi-journal-text"></i>
-                  </div>
-                  <h3><?php echo htmlspecialchars($jurnal['judul']); ?></h3>
-                  <p class="text-muted small">Penulis: <?php echo htmlspecialchars($jurnal['penulis']); ?> | Tahun: <?php echo $jurnal['tahun']; ?></p>
-                  <p><?php echo htmlspecialchars(truncate($jurnal['abstrak'], 200)); ?></p>
-                  <?php if ($jurnal['file_pdf']): ?>
-                    <a href="uploads/jurnal/<?php echo htmlspecialchars($jurnal['file_pdf']); ?>" target="_blank" class="read-more">Download PDF <i class="bi bi-download"></i></a>
-                  <?php endif; ?>
                 </div>
               </div>
             <?php 
